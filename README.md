@@ -31,8 +31,9 @@ python3 /srv/workers/reconcile_ledgers.py
 # Send successful heartbeat with measured execution duration
 DURATION=$(($(date +%s) - START_TIME))
 curl -fsS -m 5 "[https://pingwhip.com/ping/$](https://pingwhip.com/ping/$){PING_TOKEN}?duration=${DURATION}"
+```
 
-Endpoints
+##Endpoints
 Method        Endpoint                       Description
 GET / POST    /ping/:token                   Acknowledges successful heartbeat.
                                              Optional parameter: ?duration=<seconds>
@@ -40,7 +41,9 @@ POST          /ping/:token/fail              Trips monitor to DOWN state immedia
                                              with optional diagnostic error payload
 POST          /api/v1/monitors/:slug/ping    Bearer-authenticated ping via scoped API key
 
-Resources
+EndpointsMethodEndpointDescriptionGET / POST/ping/:tokenAcknowledges successful heartbeat. Optional parameter: ?duration=<seconds>POST/ping/:token/failTrips monitor to DOWN state immediately with optional diagnostic error payloadPOST/api/v1/monitors/:slug/pingBearer-authenticated ping via scoped API key
+
+##Resources
 Web Console: app.pingwhip.com
 System Status: app.pingwhip.com/status
 Issues & Feedback: GitHub Issues
