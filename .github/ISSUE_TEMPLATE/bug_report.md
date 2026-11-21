@@ -8,32 +8,24 @@ type: Bug
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Describe the Bug**
+A clear and concise description of what failed (e.g., ping not acknowledged, false positive downtime alert).
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Integration Method**
+- [ ] Direct cURL / Crontab
+- [ ] Bash Wrapper (`trap ... ERR`)
+- [ ] REST API (`/api/v1/monitors/:slug/ping`)
+- [ ] Other (specify below)
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Environment Details**
+- OS: [e.g. Ubuntu 22.04, Debian 12, Alpine]
+- Shell / Runtime: [e.g. Bash 5.1, Python 3.11, Docker]
+- Edge Region / PoP (if visible in response header): [e.g. EWR, IAD, LHR]
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Observed vs Expected Behavior**
+- **Expected:** Ping responds with HTTP 200 within expected timeout.
+- **Observed:** [e.g. Connection reset, 502 Bad Gateway, timeout]
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+**Payload / Diagnostic Snippet**
+```bash
+# Paste the command or curl output (redact your production tokens)
