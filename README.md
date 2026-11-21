@@ -9,17 +9,18 @@ Markdown# PingWhip Integration & Documentation
 
 Append a PingWhip heartbeat ping to the end of any scheduled script or crontab command:
 
+### 1. Basic Crontab Append
+
 ```bash
-# Basic Crontab Append
 0 3 * * * /opt/scripts/backup-db.sh && curl -fsS -m 10 --retry 3 [https://pingwhip.com/ping/YOUR_MONITOR_TOKEN](https://pingwhip.com/ping/YOUR_MONITOR_TOKEN)
-Advanced Bash Wrapper (Duration + Exit Code Trapping)Bash#!/usr/bin/env bash
+2. Advanced Bash Wrapper (Duration + Exit Code Trapping)Bash#!/usr/bin/env bash
 set -Eeuo pipefail
 
 PING_TOKEN="YOUR_MONITOR_TOKEN"
 START_TIME=$(date +%s)
 
 # Trap execution failures and alert immediately
-trap 'curl -fsS -m 5 -X POST [https://pingwhip.com/ping/$](https://pingwhip.com/ping/$){PING_TOKEN}/fail \
+trap 'curl -fsS -m 5 -X POST "[https://pingwhip.com/ping/$](https://pingwhip.com/ping/$){PING_TOKEN}/fail" \
   -H "Content-Type: application/json" \
   -d "{\"error\": \"Failed at line $LINENO with exit code$?\", \"duration\": $(($(date +%s) - START_TIME))}"' ERR
 
