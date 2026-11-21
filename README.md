@@ -42,9 +42,10 @@ curl -fsS -m 5 "[https://pingwhip.com/ping/$](https://pingwhip.com/ping/$){PING_
 | `POST` | `/api/v1/monitors/:slug/ping` | Bearer-authenticated ping via scoped API key |
 
 ## Resources
-Web Console: app.pingwhip.com
-System Status: app.pingwhip.com/status
+Web Console: [app.pingwhip.com](https://app.pingwhip.com) \
+System Status: [app.pingwhip.com/status](https://app.pingwhip.com/status) \
 Issues & Feedback: GitHub Issues
 
-License
+**License** \
 Examples and documentation are licensed under the MIT License.
+
