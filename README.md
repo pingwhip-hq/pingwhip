@@ -17,7 +17,7 @@ Append a PingWhip heartbeat ping to the end of any scheduled script or crontab c
 
 # Or capture both success and failure inline:
 0 * * * * /opt/scripts/sync-stripe.sh \
-  && curl -fsS -m 5 [https://pingwhip.com/ping/YOUR_MONITOR_TOKEN](https://ping.pingwhip.com/ping/YOUR_MONITOR_TOKEN) \
+  && curl -fsS -m 5 [https://ping.pingwhip.com/ping/YOUR_MONITOR_TOKEN](https://ping.pingwhip.com/ping/YOUR_MONITOR_TOKEN) \
   || curl -fsS -m 5 [https://ping.pingwhip.com/ping/YOUR_MONITOR_TOKEN/fail](https://ping.pingwhip.com/ping/YOUR_MONITOR_TOKEN/fail)
 ```
 
