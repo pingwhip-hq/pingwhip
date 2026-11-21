@@ -1,4 +1,4 @@
-Markdown# PingWhip Integration & Documentation
+# PingWhip Integration & Documentation
 
 > **Zero-agent heartbeat monitoring and synthetic cron telemetry.**  
 > Monitor scheduled tasks, background workers, and batch pipelines with sub-10ms edge ingestion across 300+ PoPs.
@@ -13,7 +13,8 @@ Append a PingWhip heartbeat ping to the end of any scheduled script or crontab c
 
 ```bash
 0 3 * * * /opt/scripts/backup-db.sh && curl -fsS -m 10 --retry 3 [https://pingwhip.com/ping/YOUR_MONITOR_TOKEN](https://pingwhip.com/ping/YOUR_MONITOR_TOKEN)
-2. Advanced Bash Wrapper (Duration + Exit Code Trapping)Bash#!/usr/bin/env bash
+
+#!/usr/bin/env bash
 set -Eeuo pipefail
 
 PING_TOKEN="YOUR_MONITOR_TOKEN"
@@ -30,4 +31,17 @@ python3 /srv/workers/reconcile_ledgers.py
 # Send successful heartbeat with measured execution duration
 DURATION=$(($(date +%s) - START_TIME))
 curl -fsS -m 5 "[https://pingwhip.com/ping/$](https://pingwhip.com/ping/$){PING_TOKEN}?duration=${DURATION}"
-EndpointsMethodEndpointDescriptionGET / POST/ping/:tokenAcknowledges successful heartbeat. Optional parameter: ?duration=<seconds>POST/ping/:token/failTrips monitor to DOWN state immediately with optional diagnostic error payloadPOST/api/v1/monitors/:slug/pingBearer-authenticated ping via scoped API keyResourcesWeb Console: app.pingwhip.comSystem Status: app.pingwhip.com/statusIssues & Feedback: GitHub IssuesLicenseExamples and documentation are licensed under the MIT License.
+
+Endpoints
+Method        Endpoint                       Description
+GET / POST    /ping/:token                   Acknowledges successful heartbeat. Optional parameter: ?duration=<seconds>
+POST          /ping/:token/fail              Trips monitor to DOWN state immediately with optional diagnostic error payload
+POST          /api/v1/monitors/:slug/ping    Bearer-authenticated ping via scoped API key
+
+Resources
+Web Console: app.pingwhip.com
+System Status: app.pingwhip.com/status
+Issues & Feedback: GitHub Issues
+
+License
+Examples and documentation are licensed under the MIT License.
