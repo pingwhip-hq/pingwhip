@@ -34,8 +34,10 @@ curl -fsS -m 5 "[https://pingwhip.com/ping/$](https://pingwhip.com/ping/$){PING_
 
 Endpoints
 Method        Endpoint                       Description
-GET / POST    /ping/:token                   Acknowledges successful heartbeat. Optional parameter: ?duration=<seconds>
-POST          /ping/:token/fail              Trips monitor to DOWN state immediately with optional diagnostic error payload
+GET / POST    /ping/:token                   Acknowledges successful heartbeat.
+                                             Optional parameter: ?duration=<seconds>
+POST          /ping/:token/fail              Trips monitor to DOWN state immediately
+                                             with optional diagnostic error payload
 POST          /api/v1/monitors/:slug/ping    Bearer-authenticated ping via scoped API key
 
 Resources
